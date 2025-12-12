@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style>
+*{
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  font-family: sans-serif;
+  user-select: none;
+}
+
+#topTeirGame {
+  width: 100%;
+  margin-top: 170px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5.5px;
+
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  /* Hide scrollbar to prevent body shake */
+  scrollbar-width: none;          /* Firefox */
+}
+#topTeirGame::-webkit-scrollbar {
+  display: none;                  /* Chrome */
+}
+
+#topTeirGame h3{
+  position: absolute;
+  left: 10px;
+  top: 120px;
+  color: rgba(0,0,0,0.8);
+}
+
+#topTeirGame div{
+  width: 90px;
+  height: 150px;
+margin-left: 5.5px;
+  border-radius: 20px;
+  flex-shrink: 0;
+
+  background: linear-gradient(
+    120deg,
+    #ffffff 30%,
+    #8d8f94 100%,
+    #ffffff 60%
+  );
+  background-size: 200% 100%;
+  animation: shine 1.5s infinite linear;
+
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+@keyframes shine{
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+#chooseTypeGame{
+  border:  0px solid black;
+  display: flex;
+   
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  margin-top: 60px;
+}
+#chooseTypeGame div{
+  border: 0px solid  black;
+  width: 70px;
+  height: 40px;
+  margin-left: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background: rgba(94,178,153,0.65);
+}
+#chooseTypeGame div:hover{
+  background: rgba(56,140,130,1);
+}
+#requestedTypeDisplayer{
+  display: grid;
+  row-gap: 15px;
+   justify-content: center;
+   border: 0px solid black;
+   margin-top: 20px;
+}
+#requestedTypeDisplayer div{
+  width: 300px;
+  height: 300px;
+  border-radius: 30px;
+  margin-top: 20px;
+    background: linear-gradient(
+    120deg,
+    #ffffff 30%,
+    #8d8f94 100%,
+    #ffffff 60%
+  );
+  background-size: 200% 100%;
+  animation: shine 1.5s infinite linear;
+
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+#offerWallPartnersCheckOut{
+  margin-left: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 25px;
+ border: 0px solid black;
+margin-top: 100px;
+overflow-x: scroll;
+margin-bottom: 140px;
+}
+#offerWallPartnersCheckOut h3{
+position: absolute;
+left: 10px;
+margin-top: -290px;
+}
+#offerWallPartnersCheckOut div{
+  border: 0px solid black;
+  width: 220px;
+  height: 220px;
+  flex-shrink: 0;
+  border-radius: 20px;
+    background: linear-gradient(
+    120deg,
+    #ffffff 30%,
+    #8d8f94 100%,
+    #ffffff 60%
+  );
+  background-size: 200% 100%;
+  animation: shine 1.5s infinite linear;
+
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+  </style>
+  <script type="module" defer>
+ var divnav = document.createElement("div")
+ divnav.id="bottomNav"
+ document.body.appendChild(divnav)
+     import {botomNav} from "/main.js"
+    botomNav(document.getElementById("bottomNav"))
+  </script>
+</head>
+
+<body>
+  <div id="topTeirGame">
+  <h3>Top Games</h3>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+  </div>
+  
+  <div id="chooseTypeGame">
+    <div>Games</div>
+    <div>Apps</div>
+  </div>
+  <div id="requestedTypeDisplayer">
+    <div></div>
+    <div></div>
+     <div></div>
+     <div></div>
+  </div>
+  <div id="offerWallPartnersCheckOut">
+    <h3>Offerwall Partner</h3>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  
+</body>
+<script type="module">
+   const butter = document.createElement('div')
+    butter.id = "app"
+    document.body.appendChild(butter)
+    import {botomNav} from "/main.js" 
+    botomNav(butter)
+    import { navbarUi } from "/app.js"
+    navbarUi(document.getElementById('app'))
+    
+</script>
+</html>

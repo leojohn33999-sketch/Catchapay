@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FeaturePoints Profile</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    color: #1abc9c;
+    user-select: none;
+  }
+
+  /* Loader */
+  #LoaderIndicator {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+
+  /* Header */
+  .header {
+    background: #1abc9c;
+    padding: 40px 20px 20px;
+    text-align: center;
+    position: relative;
+  }
+
+  .profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #1abc9c;
+    margin: -70px auto 10px;
+    top: 130px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: black;
+    
+  }
+
+  .profile-pic img {
+    width: 25px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  h4 {
+    margin: 10px 0 5px;
+    color: black;
+    position: relative;
+    top: 140px;
+  }
+
+  p {
+    margin: 8px 0;
+    font-size: 14px;
+    color: rgba(0,0,0,0.5);
+    position: relative;
+    top: 140px;
+    margin-top: 10px;
+  }
+
+  /* Stats Cards */
+  #divs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    max-width: 800px;
+    margin: 40px auto;
+    margin-top: 150px;
+    font-size: 90%;
+  }
+
+  #divs div {
+    background: rgba(26, 188, 156, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+  }
+
+  #divs div:hover {
+    transform: translateY(-5px);
+  }
+
+  #divs div img {
+    filter: brightness(0) saturate(100%) invert(49%) sepia(100%) saturate(348%) hue-rotate(118deg) brightness(100%) contrast(92%);
+    height: 20px;
+    width: 20px;
+  }
+
+  /* Info section */
+  .info-section {
+    background: #fff;
+    width: 95%;
+    max-width: 400px;
+    margin: 20px auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    color: #888;
+  }
+
+  .info-section div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    border-bottom: 1px solid #1abc9c33;
+    font-size: 14px;
+  }
+
+  .info-section div:last-child {
+    border-bottom: none;
+  }
+
+  .info-section img {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+  }
+
+</style>
+ <script type="module" defer>
+ var divnav = document.createElement("div")
+ divnav.id="bottomNav"
+ document.body.appendChild(divnav)
+     import {botomNav} from "/main.js"
+    botomNav(document.getElementById("bottomNav"))
+  </script>
+</head>
+<body>
+
+<div id="LoaderIndicator"><div>Loading...</div></div>
+
+<!-- Header -->
+<div class="header">
+  <div class="profile-pic">P
+    <img src="https://flagcdn.com/et.svg" alt="ET Flag">
+  </div>
+  <h4 id="names"></h4>
+
+  <p id="memberSince"></p>
+</div>
+
+<!-- Stats Cards -->
+<div id="divs">
+  <div>
+    <img src="https://cdn.jsdelivr.net/gh/fieme-one/Quick-web-imd-data@main/passive-income.png">
+    <span>Total Earned</span>
+    <strong id="balance">0 ETB</strong>
+  </div>
+  <div>
+    <img src="https://cdn.jsdelivr.net/gh/fieme-one/Quick-web-imd-data@main/gift (2).png">
+    <span>Reward Claimed</span>
+    <strong id="rewardC">0</strong>
+  </div>
+  <div>
+    <img src="https://cdn.jsdelivr.net/gh/fieme-one/Quick-web-imd-data@main/users.png">
+    <span>Referred</span>
+    <strong id="referral">0</strong>
+  </div>
+  <div>
+    <img src="https://cdn.jsdelivr.net/gh/fieme-one/Quick-web-imd-data@main/benefit-porcent.png">
+    <span>From Referrals</span>
+    <strong id="referralPercent">0%</strong>
+  </div>
+</div>
+
+<!-- Info Section -->
+<div class="info-section">
+  <div>
+    <span id="email">userEmail@mail.com</span>
+  </div>
+  <div >
+    <span id="name">User Name</span>
+    <img src="https://cdn.jsdelivr.net/gh/fieme-one/Quick-web-imd-data@main/pencil.png" alt="Edit" id="nameStick" style="position:absolute; z-index:999;">
+  </div>
+</div>
+
+<div id="nav"></div>
+
+
+<script type="module">
+
+import { supabase } from "/supabaseJS (1).js"
+const load = document.getElementById("LoaderIndicator");
+const { data: { user } } = await supabase.auth.getUser();
+  if (!user) { window.location.href = "./index.html";}
+  
+async function profile() {
+  load.style.display = "flex";
+
+  
+  const { data, error } = await supabase.rpc('get_user_profile');
+  load.style.display = "none";
+
+  if (error) return console.error('Failed to fetch profile:', error.message);
+   var name ;
+  if (data && data.length > 0) {
+    const p = data[0];
+    document.getElementById('name').innerText = p.name;
+    document.getElementById('names').innerText ='@'+ p.name;
+    document.getElementById('email').innerText = p.email;
+   
+    document.getElementById('balance').innerText = p.balanceetb + ' ETB';
+    document.getElementById('referral').innerText = p.referral;
+    name = p.name
+    document.getElementById('referralPercent').innerText = p.referallpercent + '%';
+   
+  }else if(!data.length > 0){
+   window.location.href ="/index.html"
+  }
+
+  function formatMemberSince(dateString) {
+    const createdDate = new Date(dateString);
+    const now = new Date();
+    const diffTime = Math.abs(now - createdDate);
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    if (diffDays < 30) return `${diffDays} day's ago`;
+    const diffMonths = Math.floor(diffDays / 30);
+    if (diffMonths < 12) return `${diffMonths} month's ago`;
+    const diffYears = Math.floor(diffMonths / 12);
+    return `${diffMonths}'s ago`;
+  }
+  
+
+  const memberSince = formatMemberSince(user.created_at);
+  document.getElementById('memberSince').innerText = `Member since ${memberSince}`;
+  document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("nameStick").addEventListener("click", () => {
+    console.log("tapped",data[0].name);
+  });
+});
+}
+
+profile();
+ async  function ChangeName(newName){
+   
+   const { data, error } = await supabase.rpc("update_username", {
+  uid: user.id,
+  new_name: newName
+});
+
+if (error) {
+  console.error(error);
+} else {
+  console.log("Name updated!");
+}
+ }
+
+// Navigation import
+</script>
+
+</body>
+</html>

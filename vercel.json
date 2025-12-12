@@ -1,0 +1,9 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/withdraw", "destination": "/withdraw.html" },
+    { "source": "/user", "destination": "/user.html" },
+    { "source": "/home", "destination": "/home.html" },
+    { "source": "/reward", "destination": "/reward.html" }
+  ]
+}

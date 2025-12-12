@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/style.css" rel="stylesheet">
+   <title>Redeem Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    background-color: #f0f8ff;
+    }
+
+    /* Top Bar */
+    .top-bar {
+      background-color: #00aaff;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .top-bar img {
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+    }
+
+    .country {
+      display: flex;
+      align-items: center;
+    }
+    
+    
+
+    /* Grid of Rewards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      padding: 20px;
+    margin-top:20px;
+    }
+
+    .reward {
+      background-color: ;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);color:#888;
+      background: white;
+      font-size: 14px;
+    }
+    .reward:active{
+      transform: translateY(-4px);
+    }
+    .reward img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 10px;
+      
+    }
+     #loginBTN:hover{
+       width: 85%;
+       background: rgba(94,178,153,0.2);
+     }
+    /* Bottom Navigation */
+   
+  </style>
+  
+</head>
+<body>
+
+  <!-- Top Bar -->
+<div id="LoaderIndicator"><div ></div></div>
+<div id="PayoutContainer">
+
+<!-- choosing part -->
+ 
+</div>
+
+
+</body>
+<script type="module" defer>
+    import {PayoutUi} from "./app.js"
+ PayoutUi()
+ 
+ document.getElementById('LoaderIndicator').style.display="none"
+    const butter = document.createElement('div')
+    butter.id = "app"
+    document.body.prepend(butter)
+   async function nav(){
+     const navsB = await import("./main.js")  
+navsB.botomNav(document.getElementById ('app'))
+const navs = await import ("./app.js")
+  navs.navbarUi(document.getElementById('app'))
+     
+   
+}
+   
+  nav()
+  
+  
+  </script> 
+</html>

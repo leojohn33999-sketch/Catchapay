@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style>
+  
+    body{
+      padding: 0;
+      margin: 0;
+     font-family: sans-serif;
+       background-color: #f0f8ff;
+    }
+    h3{
+      margin-top: 100px;
+      font-size: 120%;
+      text-align: center;
+      border: px solid black;
+      width: 90%;
+      display: flex;
+      justify-self: center;
+    }
+    #imgFriends {
+      width: 5em;
+      height: 5em;
+      margin-top: 30px;
+      border: px solid black;
+      display: flex;
+      justify-self: center;
+      margin-top: 10px;
+      filter: brightness(0) saturate(100%) invert(60%) sepia(0%) saturate(7177%) hue-rotate(136deg) brightness(86%) contrast(103%);
+    }
+    p{
+      font-size: 110%;
+      text-align: center;
+      border: px solid black;
+      margin-top: 10px;
+      font-weight: bold;
+ }
+ p span{
+   color: #cf2569 ;
+/* or */ }
+#copyDiv{
+  width: 80%;
+  height: 150px;
+  font-weight:bold ;
+  display: grid;
+  align-items: center;
+  background: rgba(0,0,0,0.04);
+  border:0px solid black;
+  padding: 20px;
+  
+  border-radius: 20px;
+  margin-top: 20px;
+  justify-self: center;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  gap: 25px;
+}
+#copyDiv input{
+  width: 100%;
+  outline: none;
+  inline: none;
+  padding: 10px;
+  border-radius:10px;
+  border: none;
+  background: white;
+}
+#copyDiv div{
+  display: flex;
+  gap: 5px;
+}
+#copyDiv #copy{
+  width: 25px;
+  height: 25px;
+  background-image: url('https://cdn.jsdelivr.net/gh/fieme-one/Quick-web-imd-data@main/duplicate.png');
+  
+  background-size: cover;
+}
+  </style>
+  <script type="module" defer>
+     import {botomNav} from "/main.js"
+    botomNav(document.getElementById("bottomNav"))
+  </script>
+</head>
+
+<body>
+  <h3>Invite your friends & earn everytime they earn</h3>
+  
+  <img src="https://cdn.jsdelivr.net/gh/fieme-one/Quick-web-imd-data@main/team-5704.png" id="imgFriends"/>
+  <p><span>Get upto 25%</span> of your referral earning</p>
+   <article style="text-align: center;display: flex;justify-self: center;width: 90%;color:#888; margin-top: 10px;font-size: 90%;">earn up to 25% from all of your  referral earning for the life of their account</article>
+   
+   <div id="copyDiv">
+     <span>Share your referral link</span>
+     <input id="shareCode" type="text"disabled value="Loading...">
+     <div id="copyEvent">
+     <div id="copy"></div>
+     <span>copy</span></div>
+     </div>
+     <div id="bottomNav"></div>
+</body>
+<script type="module">
+  const butter = document.createElement('div')
+    butter.id = "app"
+    document.body.appendChild(butter)
+      
+    import { navbarUi } from "/app.js"
+    navbarUi(document.getElementById('app'))
+ 
+    document.querySelectorAll(".topGlow").forEach((e) => {
+      e.style.height="2px"
+    })
+    document.querySelectorAll(".bottomImg").forEach((e)=>{e.style.filter=` brightness(0) saturate(100%) invert(96%) sepia(0%) saturate(646%) hue-rotate(136deg) brightness(89%) contrast(79%);`})
+    
+    const images = document.querySelectorAll(".bottomImg");
+console.log(`Found ${images.length} elements with class .bottomImg`);
+
+if (images.length > 0) {
+  images.forEach((e) => {
+    e.style.filters = ` brightness(0) saturate(100%) invert(56%) sepia(0%) saturate(1105%) hue-rotate(136deg) brightness(86%) contrast(62%)`;
+  });
+} else {
+  console.error("No elements found with class .bottomImg");
+}
+import  {referallcodeCopy} from "./app.js"
+
+var refcode= referallcodeCopy.toUpperCase()
+document.getElementById("shareCode").value = `https://catchapay.com/r/${refcode} `
+console.log(referallcodeCopy)
+var copy = document.getElementById("copyEvent")
+copy.addEventListener("click",(e) => {
+  navigator.clipboard.writeText(`https://catchapay.com.et/r/${refcode}`)
+})
+</script>
+</html>

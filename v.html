@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style>
+  
+    #centerCheck{
+      display: flex;
+      border: 0px solid  black;
+      justify-self: center;
+      justify-content: center;
+      justify-items: center;
+      width: 200px;
+      height: 200px;
+      margin-top: 300px;
+      align-self: center;
+      align-items: center;
+      
+    }
+    #centerCheck #rotate{
+      border: 2px solid white;
+      border-top: 2px solid black;
+      border-radius: 50%;
+      box-shadow: 0 1px 2px 2px rgba(0,0,0,0.1);
+      
+      width: 50px;
+      height: 50px;
+      animation: spin  1s  linear infinite;
+    }
+    @keyframes spin{
+      from{ transform :rotate(0deg);}
+      to{transform:rotate(360deg);}
+    }
+  </style>
+</head>
+
+<body>
+  <div id="centerCheck">
+    <div id="rotate"></div>
+  </div>
+</body>
+<script type="module">
+  import {supabase} from "/supabaseJS (1).js"
+async  function  checkMail(){
+  const param = new URLSearchParams(window.location.search)
+  const d =  param.get("d")
+ const { data, error } = await supabase.rpc('verify_essential_v2', {
+  p_data: d
+});
+
+if (error) {
+  console.error(error);
+  alert("Error: " + error.message);
+} else {
+  switch(data) {
+    case 'user_true':
+      alert("Verified successfully!");
+      break;
+    case 'success_but_not_same':
+      alert("Data exists but belongs to another user.");
+      break;
+    case 'already_verified':
+      alert("This data is already verified.");
+      break;
+  }
+}
+  }
+  checkMail()
+  </script>
+</html>
