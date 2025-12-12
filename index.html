@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="/style.css" rel="stylesheet">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FeaturePoints Signup</title>
+    <style>
+        body {
+            overflow-x: hidden;
+            user-select: none;
+        }
+        
+        #containerGames div {
+            width: 80%;
+            margin-top: 10px;
+        }
+        
+        #containergm div {
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0px 1px 3px 1px rgba(0,0,0,0.1);
+            color: black;
+        }
+        
+        /* Loader animation */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loader {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        
+        .btn-disabled {
+            opacity: 0.7;
+            cursor: not-allowed !important;
+        }
+    </style>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #ffffff; margin:0;">
+    <!-- Fixed Header -->
+    <div id="LoaderIndicator" style="display:none; z-index:999999;"><div></div></div>
+    <div style="display:flex; border:0px solid black; width: 100%; position:fixed; z-index: 100; top:0; box-shadow: 0 1px 10px -3px black; background: white;">
+        <img src="https://cdn.jsdelivr.net/gh/fieme-one/Quick-web-imd-data@main/1000082361_preview_rev_1.png" style="width: 40px; height: 40px; margin: 12.5px auto 20px 6px; position: fixed;" alt="logo">
+        <h3 style="margin: 20px auto 20px 45px; color:#1ABC9C;">CatchaPay</h3>
+        <div style="margin-top: 10px;">
+            <button style="padding: 10px 20px; background-color: #5eb299; color: white; border: none; border-radius: 4px; margin-right: 10px; cursor: pointer;" id="loginTop">Login</button>
+        </div>
+    </div>
+    
+    <!-- Header Section -->
+    <div style="background-color: #1abc9c; color: white; padding: 20px; height: 420px; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px; position: relative; z-index: 10; display:grid; text-align: center; margin-top: 62.0px; justify-content: center; justify-items: center;">
+        <!-- Rewards Icons -->
+        <div style="position: absolute; z-index:-10; top:-30px; border:0px solid black; margin: 5.0px; margin-top: 50px; height:90; width: 95%;">
+            <div style="width:360px; height:240px; border: 0px solid black; display:flex; gap:10px; align-items: center; align-content: center; justify-content: center; justify-items:center;" id="containergm">
+                <div style="width:25%; height:100%; border:0px solid black; padding:10px;">
+                    <div style="height:107px; width:90px; border:0px solid black; margin-top: 15px;">
+                        <img src="https://cdn.jsdelivr.net/gh/fieme-one/Quick-web-imd-data@main/unnamed (2).png" style="width: 100%; height: 100%; position: relative; border-radius:10px;">
+                    </div>
+                    <div style="position:relative; margin-top:15px; height:30%; display:grid; border:0px solid black; padding:5px; text-align:left;">
+                        <span style="font-size:15px;">Color Bolt</span>
+                        <span style="opacity:0.7; font-size: 14px;">Game</span>
+                        <span style="font-size:15px; margin-top:10px;">2000ETB</span>
+                    </div>
+                </div>
+                <div style="width:25%; height:100%; border:px solid black; padding:10px;">
+                    <div style="height:107px; width:90px; border:px solid black; margin-top: 15px;">
+                        <img src="https://cdn.jsdelivr.net/gh/fieme-one/Quick-web-imd-data@main/main (1).png" style="width: 100%; height: 100%; position: relative; border-radius:10px;">
+                    </div>
+                    <div style="position:relative; margin-top:15px; height:30%; display:grid; border:px solid black; padding:5px; text-align:left;">
+                        <span style="font-size:15px;">Wizard b..</span>
+                        <span style="opacity:0.7; font-size: 14px;">Game</span>
+                        <span style="font-size:15px; margin-top:10px;">25200ETB</span>
+                    </div>
+                </div>
+                <div style="width:25%; height:100%; border:px solid black; padding:10px;">
+                    <div style="height:107px; width:90px; border:px solid black; margin-top: 15px;">
+                        <img src="https://cdn.jsdelivr.net/gh/fieme-one/Quick-web-imd-data@main/main (2).png" style="width: 100%; height: 100%; position: relative; border-radius:10px;">
+                    </div>
+                    <div style="position:relative; margin-top:15px; height:30%; display:grid; border:px solid black; padding:5px; text-align:left;">
+                        <span style="font-size:15px;">Number m..</span>
+                        <span style="opacity:0.7; font-size: 14px;">Game</span>
+                        <span style="font-size:15px; margin-top:10px;">530ETB</span>
+                    </div>
+                </div>
+            </div>
+            <div style="border:px solid black; margin-top:10px;">
+                <h1>Turn Free Time Into Real Money</h1>
+                <span style="font-size:15px; opacity: 0.8;">Play games, watch videos, and complete simple offers to earn cash instantly.</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Message -->
+    <div style="padding: 0 20px; border: 0px solid black; padding-top: 50px; position:relative; top: -40px; padding-bottom:30px; background:rgba(94,178,153,1); text-align: center;">
+        <!-- Signup Form -->
+        <div style="margin-top: 30px; color:white;">
+            <div style="border:1px solid ; padding:20px 0 20px 0; background: rgba(26,188,156,0.1); border-radius:8px;">
+                <p style="font-size: 20px;">Sign up and earn <strong>free money</strong><img src="https://cdn.jsdelivr.net/gh/fieme-one/Quick-web-imd-data@main/poly-dollars.png" width="50px" height="50px" style="position: absolute; margin-top:-15px;"></p>
+                <img src="https://cdn.jsdelivr.net/gh/fieme-one/Quick-web-imd-data@V.1.2/envelope.png" style="width:22.5px; height:22.5px; border:0px solid black; position: absolute; margin-top:7px; margin-left: 5px;" />
+                <input type="email" placeholder="Enter your email" style="padding: 5px 10px 5px 40px; height: 28px; width: 270px; border: 1px solid #ccc; border-radius: 4px; outline:none;" onfocus="this.style.background='#ddd';" onblur="this.style.background='#ffffff';" id="email">
+                <br><br>
+                <img src="https://cdn.jsdelivr.net/gh/fieme-one/Quick-web-imd-data@V.1.2/eye.png" style="width:25px; height:25px; border:0px solid black; position: absolute; margin-top:5px; margin-left: px; right:35px;" />
+                <img src="https://cdn.jsdelivr.net/gh/fieme-one/Quick-web-imd-data@V.1.2/lock.png" style="width:22.5px; height:22.5px; border:0px solid black; position: absolute; margin-top:5px; margin-left: 5px;" />
+                <input type="password" placeholder="Enter your Password" style="width: 270px; height:28px; border: 1px solid #ccc; border-radius:4px; padding: 5px 10px 5px 40px; outline:none;" onfocus="this.style.background='#ddd';" onblur="this.style.background='#ffffff';" id="password">
+                <br><br>
+                <button style="padding: 10px 20px; background-color: #27ae60; color: white; border: none; border-radius: 6px; width: 150px; border:1.5px solid #27ae60; font-weight: bold; cursor: pointer;" type="button" id="signUp">
+                    Sign up
+                </button>
+                <br><strong><br/>or</strong><br>
+                <br/>
+                <div id="g_id_onload"
+                    data-client_id="934920299860-19m0i3jd9aqjg0a7cfis88ipie1nvls8.apps.googleusercontent.com"
+                    data-callback="handleGoogleLogin"
+                    data-auto_prompt="false">
+                </div>
+                <div class="g_id_signin"
+                    data-type="standard"
+                    data-shape="pill"
+                    data-theme="outline"
+                    data-text="signup_with"
+                    data-size="large"
+                    data-logo_alignment="left">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- How It Works Section -->
+    <div>
+        <section style="padding:4rem 1.5rem; background:#fff; text-align:center;">
+            <h2 style="font-size:2rem; font-weight:bold; color:#5eb299; margin-bottom:2.5rem;">How It Works</h2>
+            <div>
+                <!-- Step 1 -->
+                <div style="background:rgba(94,178,153,0.05); border-radius:1.25rem; box-shadow:0 2px 8px rgba(0,0,0,0.1); padding:2.5rem 1.5rem; margin-bottom:2rem; overflow-y: hidden;">
+                    <h3 style="font-size:1.25rem; font-weight:600; margin:0.5rem 0;">Browse Offers</h3>
+                    <p style="color:#666; margin-bottom:1.5rem;">Choose from hundreds of fun and easy tasks — play games, sign up, or try new apps.</p>
+                    <img src="https://cdn.jsdelivr.net/gh/fieme-one/Quick-web-imd-data@main/1000082042_preview_rev_1.png" alt="Browse Offers" style="width:15rem; height:15rem; object-fit:contain; margin:0 auto; display:block;" />
+                </div>
+                <!-- Step 2 -->
+                <div style="background:rgba(94,178,153,0.05); border-radius:1.25rem; box-shadow:0 2px 8px rgba(0,0,0,0.1); padding:2.5rem 1.5rem; margin-bottom:2rem;">
+                    <h3 style="font-size:1.25rem; font-weight:600; margin:0.5rem 0;">Complete & Earn</h3>
+                    <p style="color:#666; margin-bottom:1.5rem;">Finish your chosen offer — it's simple and fast. Start earning right away!</p>
+                    <img src="https://cdn.jsdelivr.net/gh/fieme-one/Quick-web-imd-data@main/1000082205.png" alt="Complete Offer" style="width:15rem; height:15rem; object-fit:contain; margin:0 auto; display:block;" />
+                </div>
+                <!-- Step 3 -->
+                <div style="background:rgba(94,178,153,0.05); border-radius:1.25rem; box-shadow:0 2px 8px rgba(0,0,0,0.1); padding:2.5rem 1.5rem;">
+                    <h3 style="font-size:1.25rem; font-weight:600; margin:0.5rem 0;">Get Paid Instantly</h3>
+                    <p style="color:#666; margin-bottom:1.5rem;">Cash out to your preferred payment method instantly</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Payment Section -->
+        <section style="padding:4rem 1.5rem; background:rgba(94,178,153,0.1); text-align:center;">
+            <h2 style="font-size:2rem; font-weight:bold; color:#5eb299; margin-bottom:1.5rem;">Get Paid Your Way</h2>
+            <p style="color:#555; margin-bottom:1.5rem; max-width:40rem; margin-left:auto; margin-right:auto;">Withdraw your earnings directly to your bank or wallet — fast and secure every time.</p>
+            <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:1rem; margin-bottom:1.5rem;">
+                <span style="background:#fff; border-radius:0.75rem; border:1px solid rgba(94,178,153,0.3); box-shadow:0 2px 6px rgba(0,0,0,0.05); padding:0.75rem 1.5rem; font-weight:500;">CBE</span>
+                <span style="background:#fff; border-radius:0.75rem; border:1px solid rgba(94,178,153,0.3); box-shadow:0 2px 6px rgba(0,0,0,0.05); padding:0.75rem 1.5rem; font-weight:500;">Abyssinia</span>
+                <span style="background:#fff; border-radius:0.75rem; border:1px solid rgba(94,178,153,0.3); box-shadow:0 2px 6px rgba(0,0,0,0.05); padding:0.75rem 1.5rem; font-weight:500;">Awash</span>
+                <span style="background:#fff; border-radius:0.75rem; border:1px solid rgba(94,178,153,0.3); box-shadow:0 2px 6px rgba(0,0,0,0.05); padding:0.75rem 1.5rem; font-weight:500;">Telebirr</span>
+                <span style="background:#fff; border-radius:0.75rem; border:1px solid rgba(94,178,153,0.3); box-shadow:0 2px 6px rgba(0,0,0,0.05); padding:0.75rem 1.5rem; font-weight:500;">Ebirr</span>
+            </div>
+            <p style="color:#555;">You can also enable <strong>automatic monthly payments</strong> — get paid every 30 days without lifting a finger.</p>
+        </section>
+
+        <!-- Referral Section -->
+        <section style="padding:5rem 1.5rem; text-align:center; background:#fff;">
+            <h2 style="font-size:2rem; font-weight:bold; color:#5eb299; margin:1rem 0;">Share & Earn More</h2>
+            <p style="color:#444; max-width:32rem; margin:0 auto 2rem;">Invite your friends and earn upto 25% bonus every time they make money using your referral link. The more friends you invite, the more you earn!</p>
+        </section>
+    </div>
+    
+    <footer style="display:grid; grid-row-gap: 1rem; justify-content:center; align-content: center; background: #1ABC9C; padding:30px; text-align: center; color:white;">
+        <span style="top:-10px; position: relative;"><span style="font-size: 10px; margin-top: -2.5px; margin-left:-10px; position: absolute;">&copy;</span>CatchaPay alright reserved</span>
+        <span onclick="window.location.href='./description.html?p=term'">Terms</span>
+        <span onclick="window.location.href='./description.html?p=policy'">Policy's</span>
+        <img src="#" style="height:10rem; width:20rem; margin-top: 20px;" />
+    </footer>
+
+    <!-- JavaScript Section - Moved to bottom -->
+    <script type="module">
+        // Import Supabase client
+        import { supabase,checkUser } from "/supabaseJS (1).js";
+
+        // Function to show loading state
+        function showLoading(button) {
+            button.innerHTML = '<div class="loader"></div>';
+            button.classList.add('btn-disabled');
+            button.disabled = true;
+        }
+        
+        // Function to hide loading state
+        function hideLoading(button, text) {
+            button.innerHTML = text;
+            button.classList.remove('btn-disabled');
+            button.disabled = false;
+        }
+        
+        // Function to validate email
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+        
+        // Function to validate password
+        function isValidPassword(password) {
+            return password.length >= 6;
+        }
+        
+        // Wait for DOM to be fully loaded
+        document.addEventListener("DOMContentLoaded", () => {
+            const signupBtn = document.getElementById('signUp');
+            const loginBtn = document.getElementById('loginTop');
+            
+            console.log('DOM loaded, signup button found:', signupBtn);
+            
+            // Signup button click handler
+            signupBtn.addEventListener('click', async () => {
+                console.log('Signup button clicked');
+                
+                const email = document.getElementById('email').value.trim();
+                const password = document.getElementById('password').value.trim();
+                
+                // Validate inputs
+                if (!email || !password) {
+                    alert('Please enter both email and password');
+                    return;
+                }
+                
+                if (!isValidEmail(email)) {
+                    alert('Please enter a valid email address');
+                    return;
+                }
+                
+                if (!isValidPassword(password)) {
+                    alert('Password must be at least 6 characters long');
+                    return;
+                }
+                
+                // Show loading state
+                showLoading(signupBtn);
+                
+                try {
+                    console.log('Attempting signup with Supabase...');
+                    
+                    // Sign up with Supabase
+                    const { data, error } = await supabase.auth.signUp({ 
+                        email, 
+                        password 
+                    });
+                    
+                    if (error) {
+                        console.error('Supabase signup error:', error);
+                        hideLoading(signupBtn, 'Sign up');
+                        alert(`Signup failed: ${error.message}`);
+                        return;
+                    }
+                    
+                try {
+    // Get the current session
+    const session = await supabase.auth.getSession();
+    const token = session.data.session?.access_token;
+
+    if (!token) {
+        alert("You must be logged in to continue.");
+        return;
+    }
+
+    // Call your backend
+    const response = await fetch("https://backend-j1t9.onrender.com/send-email", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + token
+        },
+        body: JSON.stringify({}) // no need to send email/user_id, backend handles it
+    });
+
+    // Parse JSON safely
+    const result = await response.json().catch(() => ({}));
+
+    // Handle conditions
+    if (response.status === 401) {
+        alert("Unauthorized. Please log in again.");
+    } else if (!response.ok || !result.success) {
+        const errMsg = result.error?.message || JSON.stringify(result.error) || response.statusText;
+        alert("Operation failed: " + errMsg);
+    } else {
+        // Success
+          var emailTeller = document.getElementById("emailTeller")
+        if(!emailTeller){
+        emailTeller = document.createElement ("div")
+        emailTeller.id="emailTeller"
+        emailTeller.style=`width: 300px;
+      height: 300px;
+      justify-self: center;
+      border: 1px solid #1ABC9C;
+      display: grid;
+      align-items: center;
+    top: 170px;
+      justify-items: center;
+      justify-content:center ;
+      color: rgba(0,0,0,0.7);
+      padding: 20px;
+      border-radius: 10px;
+      position: fixed;
+      background: white;`
+        }
+        emailTeller.innerHTML = ` <img src="https://cdn.jsdelivr.net/gh/fieme-one/Quick-web-imd-data@main/send.png" style="border: 0px solid black;
+      width: 150px;
+      height: 150px;
+      justify-self: center;
+      margin-left: 20px;">
+    <span style="position: relative;
+      margin-top: -20px;"> Check your Email box</span>
+    <div style="border: 1px solid #1ABC9C;
+      
+      display: flex;
+      justify-content: center;
+    align-items: center;
+      text-align: center;
+    padding: 15px;
+    background: #388c82;
+      color: white;
+      width: 80px;
+   border-radius: 5px;
+   transition-duration: 0.1s;"
+   onmouseenter="
+   this.style.color='black';
+   this.style.background='white';
+   "  onclick="window.location.href ='/home.html'">ok</div>`
+    }
+    
+} catch (err) {
+    console.error("Unexpected error:", err);
+    alert("An unexpected error occurred. Please try again later.");
+}            
+                    // Create profile
+                     
+                    
+                    // Insert profile using RPC function
+            
+                    
+                    // Reset form
+                    document.getElementById('email').value = '';
+                    document.getElementById('password').value = '';
+                    
+                } catch (error) {
+                    console.error('Unexpected error:', error);
+                    alert("An unexpected error occurred. Please try again.");
+                } finally {
+                    hideLoading(signupBtn, 'Sign up');
+                }
+            });
+            
+            // Login button click handler
+            if (loginBtn) {
+                loginBtn.addEventListener('click', async () => {
+                    console.log('Login button clicked');
+                    // Try to import login function
+                    try {
+                        const { login } = await import("/index.js");
+                        if (login && typeof login === 'function') {
+                            await new Promise(resolve => setTimeout(resolve, 200));
+                            login();
+                        } else {
+                            console.error('Login function not found');
+                            window.location.href = '/login.html'; // Fallback
+                        }
+                    } catch (error) {
+                        console.error('Error loading login module:', error);
+                        window.location.href = '/login.html'; // Fallback
+                    }
+                });
+            }
+            
+            // Add cursor pointer to clickable elements
+            document.querySelectorAll('span[onclick]').forEach(element => {
+                element.style.cursor = 'pointer';
+            });
+        });
+        
+        // Google login callback
+        window.handleGoogleLogin = async (response) => {
+            console.log('Google login response:', response);
+            // Handle Google login here
+            // You'll need to implement this based on your Supabase setup
+        };
+    </script>
+</body>
+</html>
