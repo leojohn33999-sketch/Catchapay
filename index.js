@@ -159,7 +159,7 @@ border: 1.5px solid #ddd;
     }
 
     // Call your backend
-    const response = await fetch("http://localhost:3000/send-email", {
+    const response = await fetch("https://backend-j1t9.onrender.com//send-email", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
