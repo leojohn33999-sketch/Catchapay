@@ -213,7 +213,7 @@ async function profile() {
   load.style.display = "flex";
 
   
-  const { data, error } = await supabase.rpc('get_user_profile');
+  const { data, error } = await supabase.rpc('get_user_profile_v2');
   load.style.display = "none";
 
   if (error) return console.error('Failed to fetch profile:', error.message);
@@ -225,7 +225,7 @@ async function profile() {
     document.getElementById('email').innerText = p.email;
    
     document.getElementById('balance').innerText = p.balanceetb + ' ETB';
-    document.getElementById('referral').innerText = p.referral;
+    document.getElementById('referral').innerText = p.hwreference;
     name = p.name
     document.getElementById('referralPercent').innerText = p.referallpercent + '%';
    

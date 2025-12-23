@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  <script type="module">
+    import { supabase } from "/supabaseJS (1).js";
+
+(async () => {
+  const { data, error } = await supabase.auth.getSession();
+
+  if (error || !data.session) {
+    window.location.href = "/auth/login.html"
+    return;
+  }
+
+  const token = data.session.access_token;
+
+  try {
+    const response = await fetch("http://localhost:3000/google-auth", {
+      method: "POST",
+      headers: {
+        "Authorization": "Bearer " + token,
+        "Content-Type": "application/json"
+      }
+    });
+
+    const result = await response.json();
+
+    if (!response.ok || result.success !== true) {
+      throw new Error(result.error || "Backend failed");
+      window.location.href = "/auth/login.html"
+    }
+
+    // ✅ SUCCESS
+    window.location.href = "/home.html";
+
+  } catch (err) {
+    console.error(err);
+    alert(" 501 Server error");
+  }
+})();
+  </script>
+</body>
+
+</html>

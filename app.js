@@ -1,5 +1,5 @@
 import { supabase } from "/supabaseJS (1).js";
-const {data,error} = await supabase.rpc('get_user_profile')
+const {data,error} = await supabase.rpc('get_user_profile_v2')
 
 
 var dataO = null

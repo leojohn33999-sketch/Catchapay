@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+body{
+  background: #f0f8ff;
+  padding: 0;
+  margin: 0;
+  font-family: Arial , sans-serif ;
+}
+  h1{
+    opacity: 0.8;
+    text-align: center;
+    font-size: 120%;
+  }
+  #image{
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+margin-left: 10px;
+    height: 175.0px;
+    border: px solid black;
+    background-image: url("https://cdn.jsdelivr.net/gh/fieme-one/Quick-web-imd-data@main/main%20(2).png");
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+   
+  
+  }
+  #image div{
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+   display: flex;
+    backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+  }
+  #image img{
+   height: 150px;
+   width: 150px;
+   border-radius: 10px;
+    border: 0px solid black ;
+    justify-self: center;
+  }
+  #infoDisplay{
+    padding: 10px;
+    border: 0px solid black ;
+    width: auto;
+    gap: 165px;
+    display: flex;
+  }
+  .checked{
+    color: #388c82 ;
+  }
+   #ratingContainer{
+    display: grid;
+    border: 0px solid  black;
+    
+  }
+ #InfoPopular{
+ font-size: 12px;
+    opacity: 0.6;
+    position: relative;
+    top: 10px;
+  }
+  h3{
+    opacity: 0.8;
+    font-size: 150%;
+  }
+  #gettingStarted{
+    width: 95%;
+    height: 50px;
+    border-radius: 10px;
+    background: #388c82;
+    justify-self: center;
+    color: white;
+    margin-left: 10px;
+    border: none;
+    
+  }
+  #description_choose{
+    display: flex;
+    border: 0px solid black;
+    width: auto;
+    justify-self: center;
+    margin-right: 180px;
+    margin-top: 10px;
+    padding: 10px;
+    gap: 40px;
+  }
+  #description_choose div{
+    border-bottom: 0px solid #1ABC9C;
+    padding: 10px;
+    opacity: 0.8;
+  }
+  h4{
+    margin-left: 10px;
+  }
+  #desc_for_instruction{
+    display: grid;
+    padding: 10px;
+    border: 0px solid black;
+    grid-row-gap: 10px;
+  }
+  #desc_for_instruction div{
+    display: flex;
+    font-size: 12px;
+    gap: 20px;
+    background: rgba(0,0,0,0.1);
+    border-radius: 5px;
+    width: 90%;
+    justify-self: center;
+    padding: 10px;
+    border: 0.5px solid rgba(0,0,0,0.2);
+    
+  }
+  #desc_for_instruction button{
+    position: relative;
+    padding: px;
+    background: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    height: 30px;
+ width: 60px;
+  }
+  #desc_for_instruction span{
+    padding: 7px;
+    margin-left: 60px;
+    position: absolute;
+  }
+  
+</style>
+<body>
+  <h1>Clash of clans Game</h1>
+  <div id="image">
+<div>    <img src="https://cdn.jsdelivr.net/gh/fieme-one/Quick-web-imd-data@main/main (2).png"/></div>
+  </div>
+  <div id="infoDisplay">
+    <h3>100 ETB</h3>
+    
+    <div id="ratingContainer">
+      <span id="InfoPopular">Popularity score</span>
+      <div>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
+<span class="fa fa-star"></span>
+      </div>
+    </div>
+  </div>
+  <button id="gettingStarted">
+    Play now 
+  </button>
+  <div id="description_choose">
+   <div id="reward_desc"> reward </div>
+   <div id="detail_desc"> details </div>
+  </div>
+  <h4>Main reward</h4>
+  <div id="desc_for_instruction">
+    <div id="instruction_cont">
+      <button> 4 etb</button>
+      <span> intall</span>
+    </div>
+     <div id="instruction_cont">
+      <button> 100 etb</button>
+      <span>Complete level 10</span>
+    </div>
+     <div id="instruction_cont">
+      <button> 1k etb</button>
+      <span>Complete level 60</span>
+    </div>
+     <div id="instruction_cont">
+      <button> 6k etb</button>
+      <span>Complete level 10</span>
+    </div>
+     <div id="instruction_cont">
+      <button> 10k etb</button>
+      <span>Complete level 100</span>
+    </div>
+     <div id="instruction_cont">
+      <button> 1k etb</button>
+      <span> Purchase a plan </span>
+    </div>
+  </div>
+  
+</body>
+
+
+<script >
+const c = document.getElementById("detail_desc")
+function changeData(item) {
+  if(item === c || d){
+   return item.style.borderBottom = "2px solid #1ABC9C";}
+   
+}
+
+// Call the function correctly
+  var d = document.getElementById("reward_desc");
+changeData(d)
+c.addEventListener("click",()=>{changeData(c)})
+
+</script>
+</html>
