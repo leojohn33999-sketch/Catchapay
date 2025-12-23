@@ -1,4 +1,4 @@
-import { supabase } from "/supabaseJS (1).js";
+import { supabase } from "https://leojohn33999-sketch.github.io/Catchapay/supabaseJS (1).js";
 const {data,error} = await supabase.rpc('get_user_profile_v2')
 
 
@@ -11,13 +11,13 @@ if (currentPage === "/" || currentPage.endsWith("index.html")) {
 } else {
     // Safe to check data
     if (!data || data.length === 0) {
-        window.location.href = "/index.html";
+        window.location.href = "https://leojohn33999-sketch.github.io/Catchapay/index.html";
     } else {
         dataO = data[0];
     }
 }
 if(dataO !== null && window.location.href.includes("index.html")){
-  window.location.href = "./home.html"
+  window.location.href = "https://leojohn33999-sketch.github.io/Catchapay/home.html"
 }
 
 
