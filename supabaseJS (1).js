@@ -18,7 +18,7 @@ export async function checkUser(supabaseClient) {
         
         // If user is logged in and on index page, redirect to home
         if (data.length>0 && window.location.pathname.includes("/index.html")) {
-        return window.location.href = "/home.html";
+        return window.location.href = "https://leojohn33999-sketch.github.io/Catchapay/home.html";
         }
         
       
