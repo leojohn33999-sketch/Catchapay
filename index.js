@@ -1,5 +1,5 @@
 
-import { supabase } from "/supabaseJS (1).js"
+import { supabase } from "./supabaseJS (1).js"
 
 export async function login() {
   // Check auth status and redirect
