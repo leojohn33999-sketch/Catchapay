@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="/style.css" rel="stylesheet">
+    <link href="./style.css" rel="stylesheet">
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,7 +53,10 @@
         <img src="https://cdn.jsdelivr.net/gh/fieme-one/Quick-web-imd-data@main/1000082361_preview_rev_1.png" style="width: 40px; height: 40px; margin: 12.5px auto 20px 6px; position: fixed;" alt="logo">
         <h3 style="margin: 20px auto 20px 45px; color:#1ABC9C;">CatchaPay</h3>
         <div style="margin-top: 10px;">
-            <button style="padding: 10px 20px; background-color: #5eb299; color: white; border: none; border-radius: 4px; margin-right: 10px; cursor: pointer;" id="loginTop">Login</button>
+            <button style="padding: 10px 20px;
+            position: relative;
+            z-index: 99;
+            background-color: #5eb299; color: white; border: none; border-radius: 4px; margin-right: 10px; cursor: pointer;" id="loginTop">Login</button>
         </div>
     </div>
     
@@ -109,7 +112,7 @@
                 <img src="https://cdn.jsdelivr.net/gh/fieme-one/Quick-web-imd-data@V.1.2/envelope.png" style="width:22.5px; height:22.5px; border:0px solid black; position: absolute; margin-top:7px; margin-left: 5px;" />
                 <input type="email" placeholder="Enter your email" style="padding: 5px 10px 5px 40px; height: 28px; width: 270px; border: 1px solid #ccc; border-radius: 4px; outline:none;" onfocus="this.style.background='#ddd';" onblur="this.style.background='#ffffff';" id="email">
                 <br><br>
-                <img src="https://cdn.jsdelivr.net/gh/fieme-one/Quick-web-imd-data@V.1.2/eye.png" style="width:25px; height:25px; border:0px solid black; position: absolute; margin-top:5px; margin-left: px; right:35px;" />
+                <img src="https://cdn.jsdelivr.net/gh/fieme-one/Quick-web-imd-data@V.1.2/eye.png" style="width:25px; height:25px; border:0px solid black; position: absolute; margin-top:5px; margin-left: px; right:35px;" id="eyePass"/>
                 <img src="https://cdn.jsdelivr.net/gh/fieme-one/Quick-web-imd-data@V.1.2/lock.png" style="width:22.5px; height:22.5px; border:0px solid black; position: absolute; margin-top:5px; margin-left: 5px;" />
                 <input type="password" placeholder="Enter your Password" style="width: 270px; height:28px; border: 1px solid #ccc; border-radius:4px; padding: 5px 10px 5px 40px; outline:none;" onfocus="this.style.background='#ddd';" onblur="this.style.background='#ffffff';" id="password">
                 <br><br>
@@ -118,19 +121,11 @@
                 </button>
                 <br><strong><br/>or</strong><br>
                 <br/>
-                <div id="g_id_onload"
-                    data-client_id="934920299860-19m0i3jd9aqjg0a7cfis88ipie1nvls8.apps.googleusercontent.com"
-                    data-callback="handleGoogleLogin"
-                    data-auto_prompt="false">
-                </div>
-                <div class="g_id_signin"
-                    data-type="standard"
-                    data-shape="pill"
-                    data-theme="outline"
-                    data-text="signup_with"
-                    data-size="large"
-                    data-logo_alignment="left">
-                </div>
+                    <button id="customGoogleBtn" style="background: #fff; border: 1.5px solid #ddd; color: black; padding:10px 20px; border-radius:5px; font-size: 14px; width: 90%;
+                    justify-self: center;
+                    display:flex; align-items:center; justify-content:center; gap:10px; cursor:pointer;">
+        <img src="https://cdn.jsdelivr.net/gh/fieme-one/Quick-web-imd-data@main/Logo-google-icon-PNG.png" width="15" height="15"> signup with Google
+      </button>
             </div>
         </div>
     </div>
@@ -191,8 +186,8 @@
     <!-- JavaScript Section - Moved to bottom -->
     <script type="module">
         // Import Supabase client
-        import { supabase,checkUser } from "/supabaseJS (1).js";
-
+        import { supabase,checkUser } from "./supabaseJS (1).js";
+     const{data,error} = await supabase.auth.getUser()
         // Function to show loading state
         function showLoading(button) {
             button.innerHTML = '<div class="loader"></div>';
@@ -278,14 +273,14 @@
     }
 
     // Call your backend
-    const response = await fetch("https://backend-j1t9.onrender.com/send-email", {
+    const response = await fetch("http://localhost:3000/send-email", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
             "Authorization": "Bearer " + token
         },
         body: JSON.stringify({}) // no need to send email/user_id, backend handles it
-    });
+    });condition ? true : false
 
     // Parse JSON safely
     const result = await response.json().catch(() => ({}));
@@ -303,6 +298,7 @@
         emailTeller = document.createElement ("div")
         emailTeller.id="emailTeller"
         emailTeller.style=`width: 300px;
+        z-index: 9999;
       height: 300px;
       justify-self: center;
       border: 1px solid #1ABC9C;
@@ -316,6 +312,7 @@
       border-radius: 10px;
       position: fixed;
       background: white;`
+      document.body.appendChild(emailTeller)
         }
         emailTeller.innerHTML = ` <img src="https://cdn.jsdelivr.net/gh/fieme-one/Quick-web-imd-data@main/send.png" style="border: 0px solid black;
       width: 150px;
@@ -370,17 +367,16 @@
                     console.log('Login button clicked');
                     // Try to import login function
                     try {
-                        const { login } = await import("/index.js");
-                        if (login && typeof login === 'function') {
+                        const  login  = await import("./index.js");
+                        
                             await new Promise(resolve => setTimeout(resolve, 200));
-                            login();
-                        } else {
-                            console.error('Login function not found');
-                            window.location.href = '/login.html'; // Fallback
-                        }
+                            login.login();
+                        
+                            window.location.href = '/auth/login.html'; // Fallback
+                        
                     } catch (error) {
                         console.error('Error loading login module:', error);
-                        window.location.href = '/login.html'; // Fallback
+                        window.location.href = './auth/login.html'; // Fallback
                     }
                 });
             }
@@ -392,11 +388,64 @@
         });
         
         // Google login callback
-        window.handleGoogleLogin = async (response) => {
-            console.log('Google login response:', response);
-            // Handle Google login here
-            // You'll need to implement this based on your Supabase setup
-        };
+     const google = document.getElementById("customGoogleBtn");
+
+if (google) {
+  google.addEventListener("click", async () => {
+    const { error } = await supabase.auth.signInWithOAuth({
+  provider: "google",
+  options: {
+    redirectTo: `${window.location.origin}/Catchapay/auth-callback.html`
+  }
+});
+
+    if (error) {
+      alert("Google login failed");
+    }
+  });
+}
+
+
+document.addEventListener("click", async (e) => {
+  const target = e.target.closest("#loginTop");
+  if (!target) return;
+
+  console.log("LoginTop clicked");
+
+  try {
+    const module = await import("./index.js"); // import module
+    const { login } = module;
+
+    if (login && typeof login === "function") {
+   return   await login(); // wait for login logic to finish
+    }
+
+    // Fallback only if login didn’t redirect
+    if (!window.location.pathname.includes("./home.html")) {
+      window.location.href = "/auth./login.html";
+    }
+  } catch (err) {
+    console.error("Error loading login module:", err);
+    window.location.href = "./auth/login.html";
+  }
+});
+     var eye = document.getElementById("eyePass")
+     eye.addEventListener("click",() =>{
+         var src = eye.src 
+         var input = document.getElementById("password")
+         if(input.type === "password" && src === "https://cdn.jsdelivr.net/gh/fieme-one/Quick-web-imd-data@V.1.2/eye.png"){
+             eye.src = "https://cdn.jsdelivr.net/gh/fieme-one/Quick-web-imd-data@V.1.2/eye-crossed.png"
+             input.type="text"
+             eye.style.filter = " brightness(0) saturate(100%) invert(14%) sepia(24%) saturate(747%) hue-rotate(120deg) brightness(97%) contrast(100%)"
+             return;
+         }
+         eye.src = "https://cdn.jsdelivr.net/gh/fieme-one/Quick-web-imd-data@V.1.2/eye.png"
+        
+       input.type="password"
+         return;
+     })
+     
+        
     </script>
 </body>
 </html>
