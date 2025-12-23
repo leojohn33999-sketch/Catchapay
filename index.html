@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="./style.css" rel="stylesheet">
+    <link href="https://leojohn33999-sketch.github.io/Catchapay/style.css" rel="stylesheet">
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -186,7 +186,7 @@
     <!-- JavaScript Section - Moved to bottom -->
     <script type="module">
         // Import Supabase client
-        import { supabase,checkUser } from "./supabaseJS (1).js";
+        import { supabase,checkUser } from "https://leojohn33999-sketch.github.io/Catchapay/supabaseJS (1).js";
      const{data,error} = await supabase.auth.getUser()
         // Function to show loading state
         function showLoading(button) {
@@ -413,7 +413,7 @@ document.addEventListener("click", async (e) => {
   console.log("LoginTop clicked");
 
   try {
-    const module = await import("./index.js"); // import module
+    const module = await import("https://leojohn33999-sketch.github.io/Catchapay/index.js"); // import module
     const { login } = module;
 
     if (login && typeof login === "function") {
@@ -421,12 +421,12 @@ document.addEventListener("click", async (e) => {
     }
 
     // Fallback only if login didn’t redirect
-    if (!window.location.pathname.includes("./home.html")) {
-      window.location.href = "/auth./login.html";
+    if (!window.location.pathname.includes("/home.html")) {
+      window.location.href = "https://leojohn33999-sketch.github.io/Catchapay/auth./login.html";
     }
   } catch (err) {
     console.error("Error loading login module:", err);
-    window.location.href = "./auth/login.html";
+    window.location.href = "https://leojohn33999-sketch.github.io/Catchapay/auth/login.html";
   }
 });
      var eye = document.getElementById("eyePass")
