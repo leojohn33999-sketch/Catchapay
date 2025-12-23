@@ -9,7 +9,7 @@
 
 <body>
   <script type="module">
-    import { supabase } from "/supabaseJS (1).js";
+    import { supabase } from "https://leojohn33999-sketch.github.io/Catchapay/supabaseJS (1).js";
 
 (async () => {
   const { data, error } = await supabase.auth.getSession();
@@ -33,12 +33,12 @@
     const result = await response.json();
 
     if (!response.ok || result.success !== true) {
-      throw new Error(result.error || "Backend failed");
-      window.location.href = "/auth/login.html"
+      throw new Error(result.error || "Backend failed");//https://leojohn33999-sketch.github.io/Catchapay/index.js
+      window.location.href = "https://leojohn33999-sketch.github.io/Catchapay/auth/login.html"
     }
 
     // ✅ SUCCESS
-    window.location.href = "/home.html";
+    window.location.href = "https://leojohn33999-sketch.github.io/Catchapay/home.html";
 
   } catch (err) {
     console.error(err);
