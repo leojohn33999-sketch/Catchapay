@@ -1,12 +1,12 @@
 
-import { supabase } from "./supabaseJS (1).js"
+import { supabase } from "https://leojohn33999-sketch.github.io/Catchapay/supabaseJS (1).js"
 
 export async function login() {
   // Check auth status and redirect
   
     const { data, error } = await supabase.rpc("get_user_profile_v2")
     if (data && data.length > 0 && !window.location.pathname.includes("/signup.html")) {
-      window.location.href = "/home.html"
+      window.location.href = "https://leojohn33999-sketch.github.io/Catchapay/home.html"
     }
 
   // Create or get login UI
@@ -218,7 +218,7 @@ if (error) {
 // If no error, redirect
     
   
-    window.location.href = "/home.html"
+    window.location.href = "https://leojohn33999-sketch.github.io/Catchapay/home.html"
   } catch (error) {
     alert("Login failed: " + error.message)
     console.error("Login error:", error)
